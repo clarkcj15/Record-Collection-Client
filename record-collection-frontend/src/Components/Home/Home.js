@@ -24,7 +24,7 @@ const Home = () => {
 
     return(
         <div>
-            <h1>hello world</h1>
+            <h1>The Record Collection</h1>
             <NewRecordForm records={records} updateRecords={setRecords} />
 
             {/* <Link to="/genres">Genres</Link>
