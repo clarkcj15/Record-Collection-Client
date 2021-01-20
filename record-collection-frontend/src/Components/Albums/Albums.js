@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const Albums = () => {
     const [albums, setAlbums] = useState([]);
@@ -13,6 +14,22 @@ const Albums = () => {
         }
     }
 
+    const deleteAlbum = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:3000/albums/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+            const data = await response.json();
+            const filteredAlbums = albums.filter(album => album.id !== data.id);
+            setAlbums(filteredAlbums);
+        } catch(err) {
+            console.error(err);
+        }
+    }
+
     useEffect(() => {
         fetchAlbums();
     }, [])
@@ -24,9 +41,17 @@ const Albums = () => {
             albums.map((album, index) => {
                 return(
                     <div
-                        key={index}
+                    key={index}
                     >
-                        {album.name}
+                        <Link to={`/albums/${album.id}`}>
+                            {album.name}
+                        </Link>
+                        
+                        <button
+                        onClick={() => { deleteAlbum(album.id) }}
+                        >
+                        Delete
+                        </button>
                     </div>
                 )
             })

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const Artists = () => {
     const [artists, setArtists] = useState([]);
@@ -13,6 +14,22 @@ const Artists = () => {
         }
     }
 
+    const deleteArtist = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:3000/artists/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+            const data = await response.json();
+            const filteredArtists = artists.filter(artist => artist.id !== data.id);
+            setArtists(filteredArtists);
+        } catch(err) {
+            console.error(err);
+        }
+    }
+
     useEffect(() => {
         fetchArtists();
     }, [])
@@ -24,9 +41,17 @@ const Artists = () => {
             artists.map((artist, index) => {
                 return(
                     <div
-                        key={index}
+                    key={index}
                     >
-                        {artist.name}
+                        <Link to={`/artists/${artist.id}`}>
+                            {artist.name}
+                        </Link>
+
+                        <button
+                        onClick={() => { deleteArtist(artist.id) }}
+                        >
+                        Delete
+                        </button>
                     </div>
                 )
             })
