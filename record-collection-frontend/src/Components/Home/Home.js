@@ -8,7 +8,6 @@ import NewRecordForm from "./NewRecordForm"
 const Home = () => {
     const [records, setRecords] = useState([]);
 
-
     const fetchRecords = async () => {
         try {
             const response = await fetch ("http://localhost:3000/collections");
@@ -19,6 +18,9 @@ const Home = () => {
         }
     }
 
+    useEffect(() => {
+        fetchRecords();
+    }, [])
 
     return(
         <div>
