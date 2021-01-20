@@ -1,16 +1,14 @@
-import { Link } from 'react'
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 import NewRecordForm from "./NewRecordForm"
-
-
 
 const Home = () => {
     const [records, setRecords] = useState([]);
 
     const fetchRecords = async () => {
         try {
-            const response = await fetch ("http://localhost:3000/collections");
+            const response = await fetch ('https://record-collection-api.herokuapp.com/collections');
             const data = await response.json();
             setRecords(data);
         } catch(err) {
@@ -24,7 +22,7 @@ const Home = () => {
 
     return(
         <div>
-            <h1>hello world</h1>
+            <h1>The Record Collection</h1>
             <NewRecordForm records={records} updateRecords={setRecords} />
 
             {/* <Link to="/genres">Genres</Link>
