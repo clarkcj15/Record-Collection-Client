@@ -13,10 +13,10 @@ import SingleAlbum from './Components/Albums/SingleAlbum';
 function App() {
   return (
     <div className="App">
-      <Link to="/">Home</Link>
-      <Link to="/genres">Genres</Link>
-      <Link to="/artists">Artists</Link>
-      <Link to="/albums">Albums</Link>
+      <Link to="/">Home</Link><br/>
+      <Link to="/genres">Genres</Link><br/>
+      <Link to="/artists">Artists</Link><br/>
+      <Link to="/albums">Albums</Link><br/>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route /*exact*/ path="/genres/:id" render={routerProps => {

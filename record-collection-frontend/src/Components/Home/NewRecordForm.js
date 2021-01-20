@@ -36,12 +36,12 @@ const NewRecordForm = (props) => {
     }
 
     return (
-        <form onSubmit="{createRecord}">
-            <input type="text" ref={genreInput} />
-            <input type="text" ref={artistInput} />
-            <input type="text" ref={albumInput} />
-            <input type="text" ref={songsInput} />
-            <input type="text" ref={imgInput} />
+        <form onSubmit={createRecord}>
+            Genre: <input type="text" ref={genreInput} />
+            Artist: <input type="text" ref={artistInput} />
+            Album: <input type="text" ref={albumInput} />
+            Songs: <input type="text" ref={songsInput} />
+            Img: <input type="text" ref={imgInput} />
             <input type="submit" value="Post Record!"/>
         </form>
     )
