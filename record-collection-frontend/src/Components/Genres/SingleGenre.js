@@ -5,7 +5,8 @@ const SingleGenre = (props) => {
     const [singleGenre, setSingleGenre] = useState ({});
     const fetchSingleGenre = async () => {
         try {
-            const response = await fetch(`https://record-collection-api.herokuapp.com/genres/${props.id}`)
+            console.log(props)
+            const response = await fetch(`http://record-collection-api.herokuapp.com/genres/${props.match.params.id}`)
             const data = await response.json();
             setSingleGenre(data);
         } catch (error) {

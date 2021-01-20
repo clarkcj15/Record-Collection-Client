@@ -7,7 +7,7 @@ const SingleAlbum = (props) => {
 
     const fetchSingleAlbum = async () => {
         try{
-            const response = await fetch(`http://record-collection-api.herokuapp.com/collections/${props.id}`)
+            const response = await fetch(`http://record-collection-api.herokuapp.com/collections/${props.match.params.id}`)
             const data = await response.json();
             setSingleAlbum(data);
         } catch(error) {

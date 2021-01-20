@@ -5,7 +5,7 @@ const SingleArtist = (props) => {
 
     const fetchSingleArtist = async () => {
         try{
-            const response = await fetch(`http://record-collection-api.herokuapp.com/artists/${props.id}`)
+            const response = await fetch(`http://record-collection-api.herokuapp.com/artists/${props.match.params.id}`)
             const data = await response.json();
             setSingleArtist(data);
         } catch(error) {
@@ -19,7 +19,12 @@ const SingleArtist = (props) => {
 
     return(
         <div>
-            <h1>hello SingleArtist</h1>
+            <h1>{singleArtist.name}</h1>
+            {/* <ul>
+                <li>
+                    {singleArtist.albums}
+                </li>
+            </ul> */}
         </div>
     )
 }
