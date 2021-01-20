@@ -1,9 +1,7 @@
-import { Link } from 'react'
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 import NewRecordForm from "./NewRecordForm"
-
-
 
 const Home = () => {
     const [records, setRecords] = useState([]);
