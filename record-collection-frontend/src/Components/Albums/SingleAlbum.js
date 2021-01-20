@@ -1,3 +1,4 @@
+import React, {useState, useEffect} from 'react'
 
 
 const SingleAlbum = () => {
@@ -7,5 +8,5 @@ const SingleAlbum = () => {
         </div>
     )
 }
-
+// Delete & Edit
 export default SingleAlbum;
