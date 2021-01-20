@@ -1,10 +1,28 @@
 import React, {useState, useEffect} from 'react'
+import Album from './Albums'
+
+const SingleAlbum = (props) => {
+    const [singleAlbum, setSingleAlbum] = useState ({});
 
 
-const SingleAlbum = () => {
+    const fetchSingleAlbum = async () => {
+        try{
+            const response = await fetch(`http://record-collection-api.herokuapp.com/collections/${props.id}`)
+            const data = await response.json();
+            setSingleAlbum(data);
+        } catch(error) {
+            console.log(error);
+        }
+
+    }
+
+    useEffect(() => {
+        fetchSingleAlbum();
+    }, []);
+
     return(
         <div>
-            <h1>hello SingleAlbum</h1>
+            <p>HELLO WORLD</p>
         </div>
     )
 }
