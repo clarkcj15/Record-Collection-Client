@@ -8,7 +8,7 @@ const Home = () => {
 
     const fetchRecords = async () => {
         try {
-            const response = await fetch ("http://localhost:3000/collections");
+            const response = await fetch ('https://record-collection-api.herokuapp.com/collections');
             const data = await response.json();
             setRecords(data);
         } catch(err) {
