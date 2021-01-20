@@ -6,7 +6,7 @@ const Genres = () => {
 
     const fetchGenres = async () => {
         try {
-            const response = await fetch ("http://localhost:3000/genres");
+            const response = await fetch ('https://record-collection-api.herokuapp.com/genres');
             const data = await response.json();
             setGenres(data);
         } catch(err) {
@@ -16,7 +16,7 @@ const Genres = () => {
 
     const deleteGenre = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3000/genres/${id}`, {
+            const response = await fetch(`https://record-collection-api.herokuapp.com/genres/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-type': 'application/json'
