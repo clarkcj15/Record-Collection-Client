@@ -6,7 +6,7 @@ const Artists = () => {
 
     const fetchArtists = async () => {
         try {
-            const response = await fetch ("http://localhost:3000/artists");
+            const response = await fetch('https://record-collection-api.herokuapp.com/artists');
             const data = await response.json();
             setArtists(data);
         } catch(err) {
@@ -16,7 +16,7 @@ const Artists = () => {
 
     const deleteArtist = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3000/artists/${id}`, {
+            const response = await fetch(`https://record-collection-api.herokuapp.com/artists/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-type': 'application/json'
