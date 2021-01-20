@@ -19,7 +19,18 @@ const Genres = () => {
 
     return(
         <div className="Genres">
-            <h1>hello Genres</h1>
+            <h1>Genres</h1>
+        {
+            genres.map((genre, index) => {
+                return(
+                    <div
+                        key={index}
+                    >
+                        {genre.name}
+                    </div>
+                )
+            })
+        }
         </div>
     )
 }
