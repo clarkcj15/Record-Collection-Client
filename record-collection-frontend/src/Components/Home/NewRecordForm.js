@@ -21,7 +21,7 @@ const NewRecordForm = (props) => {
         
         event.currentTarget.reset();
         try {
-            const response = await fetch('http://localhost:3000/collections', {
+            const response = await fetch('https://record-collection-api.herokuapp.com/collections', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
