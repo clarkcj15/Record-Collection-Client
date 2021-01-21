@@ -7,7 +7,7 @@ const NewRecordForm = (props) => {
     const songsInput = useRef(null);
     const imgInput = useRef(null);
 
-    const createRecord = async (event) => {
+    const createRecord = async (event, props) => {
         event.preventDefault();
         const genre = genreInput.current.value;
         const artist = artistInput.current.value;
@@ -28,7 +28,8 @@ const NewRecordForm = (props) => {
                 },
                 body: body
             })
-            const data = await response.json();
+            const data = await response;
+            console.log("response in new recordform",response)
             props.updateRecords([...props.albums, data])
         } catch(err) {
             console.error(err);
