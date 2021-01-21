@@ -8,7 +8,7 @@ const SingleAlbum = (props) => {
     const fetchSingleAlbum = async () => {
         try{
             const response = await fetch(`http://record-collection-api.herokuapp.com/collections/${props.match.params.id}`)
-            const data = await response;
+            const data = await response.json();
             setSingleAlbum(data);
         } catch(error) {
             console.log(error);
@@ -19,17 +19,20 @@ const SingleAlbum = (props) => {
     useEffect(() => {
         fetchSingleAlbum();
     }, []);
+    console.log(singleAlbum)
 
     return(
         <div>
+
             { singleAlbum.name
-                ? singleAlbum.name.map((name) => {
+                ? singleAlbum.name.map((album) => {
                     return (
-                        <p>{name.name}</p>
+                        <p>{album.name}</p>
                     )
                 })
                 : <h1>Loading...</h1>
             }
+
         </div>
     )
 }
