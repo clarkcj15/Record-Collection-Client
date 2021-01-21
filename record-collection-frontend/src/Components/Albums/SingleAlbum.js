@@ -22,7 +22,14 @@ const SingleAlbum = (props) => {
 
     return(
         <div>
-            <p>HELLO WORLD</p>
+            { singleAlbum.name
+                ? singleAlbum.name.map((name) => {
+                    return (
+                        <p>{name.name}</p>
+                    )
+                })
+                : <h1>Loading...</h1>
+            }
         </div>
     )
 }

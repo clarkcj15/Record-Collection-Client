@@ -19,6 +19,15 @@ const SingleGenre = (props) => {
 
     return(
         <div>
+
+        { singleGenre.name
+            ? singleGenre.name.map((name) => {
+                return (
+                    <p>{name.name}</p>
+                )
+            })
+            : <h1>Loading...</h1>
+        }
             
         </div>
     )
