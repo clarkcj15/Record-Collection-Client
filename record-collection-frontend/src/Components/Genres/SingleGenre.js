@@ -7,7 +7,7 @@ const SingleGenre = (props) => {
         try {
             console.log(props)
             const response = await fetch(`http://record-collection-api.herokuapp.com/genres/${props.match.params.id}`)
-            const data = await response.json();
+            const data = await response;
             setSingleGenre(data);
         } catch (error) {
             console.log(error);
@@ -19,7 +19,7 @@ const SingleGenre = (props) => {
 
     return(
         <div>
-            <h1>hello SingleGenre</h1>
+            
         </div>
     )
 }
